@@ -1,0 +1,73 @@
+paths:
+  /api/users/:
+    get:
+      summary: Obtiene todos los usuarios
+      responses:
+        "200":
+          description: "Datos obtenidos satisfactoriamente"
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  $ref: "#/components/schemas/User"
+        "500":
+          description: "Error interno del servidor"
+
+  /api/users/{uid}:
+    get:
+      summary: Retrieve user by ID
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          description: ID of the user being requested
+          schema:
+            type: string
+      responses: 
+        "200":
+          description: "usuario encontrado"
+          content:
+            application/json:  
+              schema:
+                $ref: "#/components/schemas/User"
+        "500":
+          description: "No existe el usuario con ese ID o hubo un error en la base"
+
+    put:
+      summary: Actualiza los datos de un usuario por su ID
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          description: id del usuario que se solicita
+          schema:
+            type: string  
+      responses: 
+        "200":
+          description: "usuario encontrado"
+          content:
+            application/json:  
+              schema:
+                $ref: "#/components/schemas/User"
+        "500":
+          description: "No existe el usuario con ese ID o hubo un error en la base"
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        _id:
+          type: objectId
+          description: Id generado por MongoDB
+        first_name:
+          type: string  
+          description: Nombre del Usuario
+        last_name:
+          type: string  
+          description: Apellido del Usuario
+      example:  
+        _id: ObjectId("12345xabc")
+        first_name: Pablo
+        last_name: Pinto

@@ -1,0 +1,35 @@
+body {
+background-color: rgb(21, 238, 68);
+}
+
+.formularioIndex {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.product {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+}
+
+.product h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.product p {
+    font-size: 16px;
+}
+
+.product button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
